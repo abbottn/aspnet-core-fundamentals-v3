@@ -18,8 +18,6 @@ namespace SimpleCrm
         {
             var message = configuration["Greeting"];
             return message;
-            
-            // throw new NotImplementedException();
         }
     }
 }
