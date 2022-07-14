@@ -34,6 +34,8 @@ namespace SimpleCrm.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseWelcomePage();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
