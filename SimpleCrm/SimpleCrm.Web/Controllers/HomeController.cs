@@ -10,7 +10,7 @@ namespace SimpleCrm.Web.Controllers
 {
     public class HomeController : Controller
     {
-        [Description("This is a property")]
+        // [Description("This is a property")]
         public IActionResult Index(string id)
         {
             var model = new CustomerModel{
@@ -19,7 +19,7 @@ namespace SimpleCrm.Web.Controllers
                 PhoneNumber = "816-231-0460",
                 LastName = "Abbott"
             }; 
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
