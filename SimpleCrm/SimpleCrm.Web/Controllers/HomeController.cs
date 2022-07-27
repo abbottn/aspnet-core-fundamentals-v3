@@ -11,14 +11,16 @@ namespace SimpleCrm.Web.Controllers
     public class HomeController : Controller
     {
         // [Description("This is a property")]
-        public IActionResult Index(string id)
+        private ICustomerData _customerData;
+
+        public HomeController(ICustomerData customerData)
         {
-            var model = new CustomerModel{
-                Id = 1,
-                FirstName = "Nick",
-                PhoneNumber = "816-231-0460",
-                LastName = "Abbott"
-            }; 
+            _customerData = customerData;
+        }
+
+        public IActionResult Index()
+        {
+            var model = _customerData.GetAll(); 
             return View(model);
         }
     }
