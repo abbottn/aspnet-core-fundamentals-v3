@@ -12,15 +12,21 @@ namespace SimpleCrm.Web.Controllers
     {
         // [Description("This is a property")]
         private ICustomerData _customerData;
+        private readonly IGreeter _greeter;
 
-        public HomeController(ICustomerData customerData)
+        public HomeController(ICustomerData customerData, IGreeter greeter)
         {
             _customerData = customerData;
+            _greeter = greeter;
         }
 
         public IActionResult Index()
         {
-            var model = _customerData.GetAll(); 
+            var model = new HomePageViewModel
+            {
+                CurrentMessage = _greeter.GetGreeting(),
+                Customers = _customerData.GetAll()
+            };
             return View(model);
         }
     }
