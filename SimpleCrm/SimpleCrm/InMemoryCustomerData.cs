@@ -23,6 +23,13 @@ namespace SimpleCrm
             };
         }
 
+        public Customer Get(int id)
+        {
+            // throw new NotImplementedException();
+            var customer = _customers.FirstOrDefault(x => x.Id == id);
+            return customer;
+        }
+
         public IEnumerable<Customer> GetAll()
         {
             return _customers;
