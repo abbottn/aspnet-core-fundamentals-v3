@@ -30,6 +30,11 @@ namespace SimpleCrm.Web.Controllers
             return View(cust);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             var model = new HomePageViewModel
