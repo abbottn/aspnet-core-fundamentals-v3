@@ -23,12 +23,12 @@ namespace SimpleCrm.Web.Controllers
 
         public IActionResult Details(int id) 
         {
-            Customer cust = _customerData.Get(id);
-            if (cust == null)
+            var customer = _customerData.Get(id);
+            if (customer == null)
             {
                 return RedirectToAction(nameof(Index));
             }
-            return View(cust);
+            return View(customer);
         }
 
         [HttpGet()]
@@ -50,7 +50,8 @@ namespace SimpleCrm.Web.Controllers
             };
             _customerData.Save(customer);
 
-            return View("Details", customer);
+            return RedirectToAction(nameof(Details), new { id = customer.Id });
+
 
         }
         public IActionResult Index()
