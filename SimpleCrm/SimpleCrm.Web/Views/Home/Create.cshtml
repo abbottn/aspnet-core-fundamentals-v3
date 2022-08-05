@@ -1,23 +1,26 @@
 ﻿@using SimpleCrm
-@model SimpleCrm.Customer
-@{
-}
+@model SimpleCrm.Web.Models.Home.CustomerEditViewModel
 
 <h1>Create</h1>
 
+@Html.ValidationSummary()
 @using (Html.BeginForm())
 {
     <div>
         @Html.LabelFor(x => x.FirstName)
-        @Html.TextBoxFor(x => x.FirstName)
+        @Html.EditorFor(x => x.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
     </div>
     <div>
         @Html.LabelFor(x => x.LastName)
-        @Html.TextBoxFor(x => x.LastName)
+        @Html.EditorFor(x => x.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+
     </div>
     <div>
         @Html.LabelFor(x => x.PhoneNumber)
-        @Html.TextBoxFor(x => x.PhoneNumber)
+        @Html.EditorFor(x => x.PhoneNumber)
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
     </div>
     <div>
         @Html.LabelFor(x => x.OptInNewsletter)
