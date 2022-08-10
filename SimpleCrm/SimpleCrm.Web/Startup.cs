@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using SimpleCrm.SqlDbServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace SimpleCrm.Web
 {
@@ -25,7 +28,13 @@ namespace SimpleCrm.Web
         {
             services.AddMvc();
             services.AddSingleton<IGreeter, ConfigurationGreeter>();
-            services.AddScoped<ICustomerData, InMemoryCustomerData>();
+            services.AddScoped<ICustomerData, SqlCustomerData>();
+
+            services.AddDbContext<SimpleCrmDbContext>(options => 
+            {
+                options.UseSqlServer(configuration.GetConnectionString("SimpleCrmConnection"));
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
