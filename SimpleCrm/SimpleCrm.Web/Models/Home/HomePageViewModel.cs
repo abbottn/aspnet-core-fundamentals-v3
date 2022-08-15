@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SimpleCrm.Web.Models
+namespace SimpleCrm.Web.Models.Home
 {
     public class HomePageViewModel
     {
