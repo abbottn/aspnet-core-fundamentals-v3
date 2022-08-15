@@ -30,6 +30,7 @@ namespace SimpleCrm.SqlDbServices
         public void Save(Customer customer)
         {
             //throw new NotImplementedException();
+            context.Customer.Add(customer);  // fixed after DBContext Implementation submitted
             context.SaveChanges(); 
         }
     }

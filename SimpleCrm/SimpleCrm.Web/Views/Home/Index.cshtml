@@ -4,14 +4,12 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewBag.Title = "Customers";
+    Layout = "_Layout";
 }
-<html>
-    <head>
-        <title>Simple CRM</title>
-    </head>
-    <body>
+
         <h1>Customers</h1>
-        <p>@Model.CurrentMessage</p>
+        
         <table>
             @foreach (var customer in Model.Customers)
            {
@@ -24,6 +22,6 @@
            }
             <tr> </tr>
         </table>
-    </body>
-
-</html>
+        @section footer {
+            <p>@Model.CurrentMessage</p>
+        }
