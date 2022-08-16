@@ -12,7 +12,8 @@
             @foreach (var customer in Model.Customers)
            {
                <tr>
-                   <td>@Html.ActionLink(customer.Id.ToString(), nameof(HomeController.Details), new {id = customer.Id})</td>
+                   <td>
+                   <a asp-action="Details" asp-route-id="@customer.Id">@customer.Id</a></td>
                    <td>@customer.FirstName</td>
                    <td>@customer.LastName</td>
                    <td>@customer.PhoneNumber</td>
@@ -20,6 +21,9 @@
            }
             <tr> </tr>
         </table>
+
+        <a asp-action="Create" asp-controller="Home">Create</a>
+
         @section footer {
             <p>@Model.CurrentMessage</p>
         }
