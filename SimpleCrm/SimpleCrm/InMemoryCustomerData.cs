@@ -29,10 +29,20 @@ namespace SimpleCrm
             var customer = _customers.FirstOrDefault(x => x.Id == id);
             return customer;
         }
-        public void Save(Customer customer)
+        public void Add(Customer customer)
         {
             customer.Id = _customers.Max(x => x.Id) + 1;
             _customers.Add(customer);
+        }
+
+        public void Update(Customer customer)
+        {
+            var customerx = _customers.FirstOrDefault(x => x.Id == customer.Id);
+            customerx.FirstName = customer.FirstName;
+            customerx.LastName = customer.LastName;
+            customerx.PhoneNumber = customer.PhoneNumber;
+            customerx.Type = customer.Type;
+            customerx.OptInNewsletter = customer.OptInNewsletter;
         }
 
         public IEnumerable<Customer> GetAll()

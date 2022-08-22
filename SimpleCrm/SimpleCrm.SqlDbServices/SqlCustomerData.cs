@@ -27,11 +27,17 @@ namespace SimpleCrm.SqlDbServices
             return context.Customer.ToList();
         }
 
-        public void Save(Customer customer)
+        public void Add(Customer customer)
         {
             //throw new NotImplementedException();
             context.Customer.Add(customer);  // fixed after DBContext Implementation submitted
             context.SaveChanges(); 
+        }
+        public void Update(Customer customer)
+        {
+            //throw new NotImplementedException();
+            context.Customer.Update(customer);  
+            context.SaveChanges();
         }
     }
 }

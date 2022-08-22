@@ -14,9 +14,9 @@
                <tr>
                    <td>
                    <a asp-action="Details" asp-route-id="@customer.Id">@customer.Id</a></td>
-                   <td>@customer.FirstName</td>
-                   <td>@customer.LastName</td>
-                   <td>@customer.PhoneNumber</td>
+                   <td><a asp-action="Edit" asp-route-id="@customer.Id">@customer.FirstName</a></td>
+                   <td><a asp-action="Edit" asp-route-id="@customer.Id">@customer.LastName</a></td>
+                   <td><a asp-action="Edit" asp-route-id="@customer.Id">@customer.PhoneNumber</a></td>
                </tr>
            }
             <tr> </tr>
