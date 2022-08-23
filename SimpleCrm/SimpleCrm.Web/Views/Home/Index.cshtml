@@ -8,19 +8,11 @@
 
         <h1>Customers</h1>
         
-        <table>
             @foreach (var customer in Model.Customers)
            {
-               <tr>
-                   <td>
-                   <a asp-action="Details" asp-route-id="@customer.Id">@customer.Id</a></td>
-                   <td><a asp-action="Edit" asp-route-id="@customer.Id">@customer.FirstName</a></td>
-                   <td><a asp-action="Edit" asp-route-id="@customer.Id">@customer.LastName</a></td>
-                   <td><a asp-action="Edit" asp-route-id="@customer.Id">@customer.PhoneNumber</a></td>
-               </tr>
+               <partial name="_Summary" model="customer" />
            }
-            <tr> </tr>
-        </table>
+            
 
         <a asp-action="Create" asp-controller="Home">Create</a>
 

@@ -28,8 +28,8 @@ namespace SimpleCrm.Web
         {
             services.AddMvc();
             services.AddSingleton<IGreeter, ConfigurationGreeter>();
-            // services.AddScoped<ICustomerData, SqlCustomerData>();
-            services.AddScoped<ICustomerData, InMemoryCustomerData>();
+            services.AddScoped<ICustomerData, SqlCustomerData>();
+            //services.AddScoped<ICustomerData, InMemoryCustomerData>();
 
             services.AddDbContext<SimpleCrmDbContext>(options => 
             {
