@@ -10,7 +10,8 @@
         @RenderBody()
     </div>
     <footer>
-        @RenderSection("footer", required: false)
+       @await Component.InvokeAsync("Greeting")
+       @RenderSection("footer", false)
         &copy; @DateTime.Now.Year SimpleCrm Sample Corp.
     </footer>
 </body>

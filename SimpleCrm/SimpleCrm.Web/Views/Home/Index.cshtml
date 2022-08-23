@@ -8,14 +8,10 @@
 
         <h1>Customers</h1>
         
-            @foreach (var customer in Model.Customers)
-           {
-               <partial name="_Summary" model="customer" />
-           }
+        @foreach (var customer in Model.Customers)
+        {
+            <partial name="_Summary" model="customer" />
+        }
             
 
         <a asp-action="Create" asp-controller="Home">Create</a>
-
-        @section footer {
-            <p>@Model.CurrentMessage</p>
-        }
