@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace SimpleCrm.Web
 {
@@ -36,6 +36,13 @@ namespace SimpleCrm.Web
                 options.UseSqlServer(configuration.GetConnectionString("SimpleCrmConnection"));
 
             });
+            services.AddDbContext<CrmIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("SimpleCrmConnection"));
+
+            });
+
+            services.AddIdentity<CrmUser, IdentityRole>().AddEntityFrameworkStores<CrmIdentityDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +63,10 @@ namespace SimpleCrm.Web
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
