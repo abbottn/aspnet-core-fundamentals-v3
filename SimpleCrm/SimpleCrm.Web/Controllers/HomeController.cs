@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SimpleCrm.Web.Models;
 using SimpleCrm.Web.Models.Home;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCrm.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // [Description("This is a property")]
@@ -98,6 +100,7 @@ namespace SimpleCrm.Web.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomePageViewModel

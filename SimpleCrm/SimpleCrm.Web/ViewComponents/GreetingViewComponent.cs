@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace SimpleCrm.Web.ViewComponents
 {
@@ -11,10 +12,11 @@ namespace SimpleCrm.Web.ViewComponents
             this.greeter = greeter;
         }
 
-        public IViewComponentResult Invoke()
+        public Task<IViewComponentResult> InvokeAsync()
         {
             var model = greeter.GetGreeting();
-            return View("Default", model);
+            // return View("Default", model);
+            return Task.FromResult<IViewComponentResult>(View("Default", model));
         }
     }
 }
