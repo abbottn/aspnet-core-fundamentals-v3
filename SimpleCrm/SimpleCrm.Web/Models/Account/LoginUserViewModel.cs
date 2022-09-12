@@ -6,7 +6,8 @@ namespace SimpleCrm.Web.Models.Account
     public class LoginUserViewModel
     {
         [Required]
-        [DisplayName("User")]
+        [DisplayName("Email Address")]
+        [DataType(DataType.EmailAddress)] 
         public string UserName { get; set; }
         [Required]
         [DisplayName("Password")]
