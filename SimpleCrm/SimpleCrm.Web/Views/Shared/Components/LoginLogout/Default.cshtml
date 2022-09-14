@@ -2,8 +2,8 @@
 <div>
     @if(User.Identity.IsAuthenticated)
     {
-        <p></p><div>Hello, @Model.DisplayName</div>
-        <a class="mdl-navigation__link" asp-action="Logout" asp-controller="Account">Logout</a>
+        <div>Hello, @Model.DisplayName</div>
+        <a class="mdl-navigation__link readability" asp-action="Logout" asp-controller="Account">Logout</a>
     }
     else
     {

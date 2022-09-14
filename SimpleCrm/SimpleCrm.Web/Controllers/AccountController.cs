@@ -67,7 +67,7 @@ namespace SimpleCrm.Web.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost, ValidateAntiForgeryToken]
