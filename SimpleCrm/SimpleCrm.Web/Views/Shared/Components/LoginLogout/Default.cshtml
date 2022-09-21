@@ -3,7 +3,15 @@
     @if(User.Identity.IsAuthenticated)
     {
         <div>Hello, @Model.DisplayName</div>
-        <a class="mdl-navigation__link readability" asp-action="Logout" asp-controller="Account">Logout</a>
+        
+        <form action = "/Account/logout" method="post" asp-antiforgery="true">
+            <button type="submit" class="mdl-button mdl-js-button
+                                           mdl-button--raised
+                                           mdl-button--colored
+                                           mdl-js-ripple-effect">Logout
+             </button>
+         </form>
+
     }
     else
     {

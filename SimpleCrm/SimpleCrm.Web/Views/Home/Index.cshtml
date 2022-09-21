@@ -3,15 +3,20 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewBag.Title = "Customers";
+    ViewBag.Title = "Home";
 }
-
-        <h1>Customers</h1>
-        
-        @foreach (var customer in Model.Customers)
-        {
-            <partial name="_Summary" model="customer" />
-        }
-            
-
-        <a asp-action="Create" asp-controller="Home">Create</a>
+<main class="mdl-layout__content">
+        <div class="page-content">
+    <h1>Customers</h1>
+    <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored fab-right" asp-action="Create">
+        <i class="material-icons">add</i>
+    </a>
+    
+            <div class="mdl-list">
+                @foreach (var customer in Model.Customers)
+                {
+                    <partial name="_Summary" model="customer" />
+                }
+            </div>
+        </div>
+</main>

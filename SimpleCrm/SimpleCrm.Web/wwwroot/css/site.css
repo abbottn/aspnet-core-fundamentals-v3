@@ -1,0 +1,18 @@
+﻿.page-content {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+.mdl-layout__content {
+    width: 100%;
+}
+.fab-right{
+    position: absolute;
+    right: 40px;
+    top: 75px;
+    z-index: 999;
+}
+.mdl-textfield__error.field-validation-error {
+    visibility: visible;
+}
+
