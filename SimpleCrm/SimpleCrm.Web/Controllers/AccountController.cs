@@ -52,11 +52,7 @@ namespace SimpleCrm.Web.Controllers
             }
             return View(); // show the view again with validation errors highlighted
         }
-        [HttpGet]
-        public IActionResult Logout(string returnUrl)
-        {
-            return View();
-        }
+
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
@@ -67,7 +63,7 @@ namespace SimpleCrm.Web.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
