@@ -6,6 +6,12 @@
 .mdl-layout__content {
     width: 100%;
 }
+.validation-summary-errors {
+    color: #d50000;
+}
+div.validation-summary-errors ul {
+    list-style: none;
+}
 .fab-right{
     position: absolute;
     right: 40px;
