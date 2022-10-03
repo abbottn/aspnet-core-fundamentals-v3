@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
   import { Customer } from '../customer.model';
   import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { CustomerService } from '../customer.service';
 
   @Component({
     selector: 'crm-customer-list-page',
@@ -36,7 +37,7 @@ import { MatSort } from '@angular/material/sort';
     displayColumns = ['name', 'phoneNumber', 'emailAddress', 'status'];
     // the above column names must match the matColumnDef names in the html
 
-    constructor() { }
+    constructor(private customerService: CustomerService) { }
 
     ngOnInit(): void {
       this.dataSource = new MatTableDataSource(this.customers);
