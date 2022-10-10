@@ -7,6 +7,8 @@ import {MatCardModule} from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerService } from './customer.service';
+import { CustomerMockService } from './customer-mock.service';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -22,7 +24,10 @@ import { CustomerService } from './customer.service';
     MatTableModule
   ],
   providers: [
-    CustomerService
+    {
+      provide: CustomerService,   // the base class requested by components
+      useClass: environment.production ? CustomerService : CustomerMockService,  // the derived type to be injected instead.
+    }
   ]
 })
 export class CustomerModule { }
