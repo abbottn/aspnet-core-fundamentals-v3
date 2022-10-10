@@ -1,6 +1,6 @@
 <div class="content-column">
   <mat-card>
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table mat-table [dataSource]="customers$" matSort>
       <!-- Name Column-->
       <ng-container matColumnDef="name">
         <!-- The matColumnDef value above must match a name in the displayColumns array  -->

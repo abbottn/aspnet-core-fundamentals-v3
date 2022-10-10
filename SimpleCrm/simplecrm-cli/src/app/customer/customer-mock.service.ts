@@ -46,7 +46,7 @@ export class CustomerMockService extends CustomerService {
         .filter(x => x.firstName.indexOf(term) >= 0 ||
           x.lastName.indexOf(term) >= 0 ||
           x.phoneNumber.indexOf(term) >= 0 ||
-          x.emailAddress.indexOf(term) >= 0);
+          x.emailAddress.indexOf(term) >= 0 ? x : null);
     return of(searchResults);
   }
 
